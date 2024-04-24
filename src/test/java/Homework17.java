@@ -1,15 +1,18 @@
+
 import org.apache.commons.lang3.exception.UncheckedInterruptedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import org.testng.annotations.Test;
 
 public class Homework17 extends BaseTest{
-
     @Test
-    public void addSongToPlaylist() {
 
 
+    public void addSongToPlaylist() throws InterruptedException{
+        String url = "https://qa.koel.app";
+        String expectedSongAddedMsg = "songAddedMsg" ;
 
         navigateToPage();
         provideEmail("tassadit.talbi@testpro.io");
@@ -18,7 +21,7 @@ public class Homework17 extends BaseTest{
         Thread.sleep (2000);
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
         Thread.sleep (2000);
-        searchSong (songName:"Pluto");
+        searchSong ("Pluto");
         Thread.sleep (2000);
         clickViewALLBtn();
         Thread.sleep (2000);
@@ -28,14 +31,17 @@ public class Homework17 extends BaseTest{
         Thread.sleep (2000);
         choosePlaylist();
         Thread.sleep (2000);
-        Assert.assertEquals(getAddToPLaylistSuccessMsg(), expectedSongAddedMsg);
+
+        Assert.assertEquals(getAddToPlaylistSuccessMsg(),expectedSongAddedMsg);
 
 
 
 
-        }
+    }
 
-    public void getAddToPLaylistSuccessMsg() {
+
+
+    public String   getAddToPlaylistSuccessMsg() {
         WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
         return notification.getText();
 
@@ -71,6 +77,12 @@ public class Homework17 extends BaseTest{
 
 
     }
+
+
+
+
+
+
 
 
 

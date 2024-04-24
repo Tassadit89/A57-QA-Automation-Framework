@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.time.Duration;
+
 public class BaseTest {
 
     public WebDriver driver;
@@ -28,7 +30,7 @@ public void launchBrowser() {
      driver.manage().window().maximize();
  }
 @AfterMethod
-    public void closeBrowser {
+    public void closeBrowser (){
     driver.quit();
      }
 

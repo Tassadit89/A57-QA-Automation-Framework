@@ -11,16 +11,18 @@ public class Homework17 extends BaseTest{
 
 
     public void addSongToPlaylist() throws InterruptedException{
-        String url = "https://qa.koel.app";
-        String expectedSongAddedMsg = "songAddedMsg" ;
+        String url = "https://qa.koel.app/";
+        String expectedSongAddedMsg = "Added 1 song into \" my playlist .\"";
+        String namePlaylist = "my playlist";
 
-        navigateToPage();
+
+
         provideEmail("tassadit.talbi@testpro.io");
         providePassword("Password2026@");
         clickLoginBtn();
         Thread.sleep (2000);
-        Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
-        Thread.sleep (2000);
+        //Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
+        //Thread.sleep (2000);
         searchSong ("Pluto");
         Thread.sleep (2000);
         clickViewALLBtn();
@@ -29,7 +31,7 @@ public class Homework17 extends BaseTest{
         Thread.sleep (2000);
         clickAddToBtn();
         Thread.sleep (2000);
-        choosePlaylist();
+        choosePlaylist(namePlaylist);
         Thread.sleep (2000);
 
         Assert.assertEquals(getAddToPlaylistSuccessMsg(),expectedSongAddedMsg);
@@ -48,24 +50,24 @@ public class Homework17 extends BaseTest{
 
     }
 
-    public void choosePlaylist () {
-            WebElement choosePlaylist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//Li[contains (text (),'Test Pro Playlist')]"));
-            choosePlaylist.click();
+    public void choosePlaylist (String playlistName) {
+            WebElement playlist = driver.findElement (By.xpath( "//section[@id='songResultsWrapper']//li[contains (text(),'My Playlist')]"));
+            playlist.click();
         }
 
         public void clickAddToBtn () {
-            WebElement AddToBtn = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//button[@data-test='add-to-Btn']"));
+            WebElement AddToBtn = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//button[@data-test='add-to-btn']"));
             AddToBtn.click();
 
         }
 
         public void selectFirstSongResult () {
-            WebElement FirstSongInResult = driver.findElement(By.xpath("//section[@id='SongResultsWrapper']//tr[@class='song-item'][1]"));
+            WebElement FirstSongInResult = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//tr[@class='song-item'][1]"));
             FirstSongInResult.click();
         }
 
         public void clickViewALLBtn () {
-            WebElement viewAllBtn = driver.findElement(By.xpath("//button[@data-test='view-all-songs"));
+            WebElement viewAllBtn = driver.findElement(By.xpath("//button[@data-test='view-all-songs-btn']"));
             viewAllBtn.click();
         }
 

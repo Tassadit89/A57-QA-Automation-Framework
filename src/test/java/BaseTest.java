@@ -1,5 +1,4 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,12 +7,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
 public class BaseTest {
 
-    public WebDriver driver;
+    protected  WebDriver driver = null;
+
+    //public WebDriver driver;
 
     @BeforeSuite
     static void setupClass() {
@@ -22,12 +24,15 @@ public class BaseTest {
 
 
  @BeforeMethod
-public void launchBrowser() {
+ @Parameters ("baseUrl")
+
+public void launchBrowser(String baseUrl) {
      ChromeOptions options = new ChromeOptions();
      options.addArguments("--remote-allow-origins=*");
-     WebDriver driver = new ChromeDriver(options);
+     driver = new ChromeDriver(options);
      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
      driver.manage().window().maximize();
+     navigateToPage(baseUrl);
  }
 @AfterMethod
     public void closeBrowser (){
@@ -54,9 +59,9 @@ public void launchBrowser() {
         emailField.sendKeys("tassadit.talbi@testpro.io");
     }
 
-    public void navigateToPage() {
-        String url = "https://qa.koel.app/";
-        driver.get(url);
+    public void navigateToPage(String baseUrl) {
+        //String url = "https://qa.koel.app/";
+        driver.get(baseUrl);
 
 
 

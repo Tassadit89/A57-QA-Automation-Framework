@@ -8,12 +8,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
 public class BaseTest {
+    protected WebDriver driver = null ;
 
-    public WebDriver driver;
+    //public WebDriver driver;
 
     @BeforeSuite
     static void setupClass() {
@@ -22,12 +24,14 @@ public class BaseTest {
 
 
  @BeforeMethod
-public void launchBrowser() {
+ @Parameters ("baseUrl")
+public void launchBrowser(String baseUrl) {
      ChromeOptions options = new ChromeOptions();
      options.addArguments("--remote-allow-origins=*");
      WebDriver driver = new ChromeDriver(options);
      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
      driver.manage().window().maximize();
+     driver.get(baseUrl);
  }
 @AfterMethod
     public void closeBrowser (){
@@ -55,8 +59,8 @@ public void launchBrowser() {
     }
 
     public void navigateToPage() {
-        String url = "https://qa.koel.app/";
-        driver.get(url);
+       // String url = "https://qa.koel.app/";
+        //driver.get(baseUrl);
 
 
 

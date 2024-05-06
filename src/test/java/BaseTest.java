@@ -8,17 +8,23 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+
+import java.time.Duration;
 
 import java.time.Duration;
 
 public class BaseTest {
+protected WebDriver driver = null;
+   // public WebDriver driver;
 
-    public WebDriver driver;
+    //public WebDriver driver;
 
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
+
 
 
  @BeforeMethod
@@ -33,6 +39,22 @@ public void launchBrowser() {
     public void closeBrowser (){
     driver.quit();
      }
+=======
+    @BeforeMethod
+    @Parameters ("baseUrl")
+    public void launchBrowser(String baseUrl) {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
+    }
+    @AfterMethod
+    public void closeBrowser (){
+        driver.quit();
+    }
+
 
 
 
@@ -54,7 +76,7 @@ public void launchBrowser() {
         emailField.sendKeys("tassadit.talbi@testpro.io");
     }
 
-    public void navigateToPage() {
+    public void navigateToPage ();
         String url = "https://qa.koel.app/";
         driver.get(url);
 
@@ -64,9 +86,6 @@ public void launchBrowser() {
 
 
 
+
     }
-}
-
-
-
 

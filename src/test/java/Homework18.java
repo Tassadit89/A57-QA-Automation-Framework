@@ -8,7 +8,7 @@ public class Homework18 extends BaseTest {
     @Test
     public void playSong () throws InterruptedException{
         String url= "https://qa.koel.app";
-        navigateToPage();
+
         provideEmail("tassadit.talbi@testpro.io");
         providePassword("Password2026@");
         clickLoginBtn();

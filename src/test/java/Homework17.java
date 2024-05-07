@@ -44,7 +44,7 @@ public class Homework17 extends BaseTest{
 
 
     public String   getAddToPlaylistSuccessMsg() {
-        WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
+        WebElement notification = driver.findElement(By.xpath("//div[@class= 'success show']"));
         return notification.getText();
 
 

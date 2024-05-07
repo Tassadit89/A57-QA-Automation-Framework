@@ -39,7 +39,7 @@ public void launchBrowser() {
     public void closeBrowser (){
     driver.quit();
      }
-=======
+==
     @BeforeMethod
     @Parameters ("baseUrl")
     public void launchBrowser(String baseUrl) {

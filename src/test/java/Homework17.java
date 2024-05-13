@@ -12,8 +12,8 @@ public class Homework17 extends BaseTest{
 
     public void addSongToPlaylist() throws InterruptedException{
         String url = "https://qa.koel.app/";
-        String expectedSongAddedMsg = "Added 1 song into \" my playlist .\"";
-        String namePlaylist = "my playlist";
+        String expectedSongAddedMsg = "Added 1 song into \"adamPlaylist .\"";
+        String namePlaylist = "adamPlaylist";
 
 
 
@@ -23,7 +23,7 @@ public class Homework17 extends BaseTest{
         Thread.sleep (2000);
         //Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
         //Thread.sleep (2000);
-        searchSong ("Pluto");
+        searchSong ("Lament");
         Thread.sleep (2000);
         clickViewALLBtn();
         Thread.sleep (2000);
@@ -51,8 +51,9 @@ public class Homework17 extends BaseTest{
     }
 
     public void choosePlaylist (String playlistName) {
-            WebElement playlist = driver.findElement (By.xpath( "//section[@id='songResultsWrapper']//li[contains (text(),'My Playlist')]"));
+            WebElement playlist = driver.findElement (By.xpath( "//section[@id='playlists']/ul/li[4]"));
             playlist.click();
+        //section[@id='songResultsWrapper']//li[contains (text(),'adamPlaylist')]
         }
 
         public void clickAddToBtn () {

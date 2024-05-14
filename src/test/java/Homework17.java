@@ -14,7 +14,7 @@ public class Homework17 extends BaseTest{
         String url = "https://qa.koel.app";
         String expectedSongAddedMsg = "songAddedMsg" ;
 
-        navigateToPage();
+
         provideEmail("tassadit.talbi@testpro.io");
         providePassword("Password2026@");
         clickLoginBtn();

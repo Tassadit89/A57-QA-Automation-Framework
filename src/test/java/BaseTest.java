@@ -20,7 +20,7 @@ public class BaseTest {
 
     public WebDriverWait wait ;
 
-    public Actions actions = null;
+    public Actions actions ;
 
     //public WebDriver driver;
 

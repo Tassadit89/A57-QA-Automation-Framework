@@ -3,16 +3,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 public class Homework21 extends BaseTest{
 
 
 
+
+@Test
     public void renamePlaylist(){
 
-        String playlistName= "My Playlist";
-        String expectedUpdateMsg = "Updated playlist 'My Zik'";
+
+        String expectedUpdateMsg = "Updated playlist \"My Zik \"";
 
         provideEmail("tassadit.talbi@testpro.io");
         providePassword("Password2026@");
@@ -20,8 +23,16 @@ public class Homework21 extends BaseTest{
         contextClickPlaylist();
         ChooseEditBtn();
         providePlaylistName();
-        Assert.assertEquals();
+        Assert.assertEquals(getUpdatedPlaylistSuccessMsg(),expectedUpdateMsg);
 
+
+
+
+    }
+
+    public String  getUpdatedPlaylistSuccessMsg() {
+        WebElement notification =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div,success.show")));
+        return notification.getText();
 
 
 

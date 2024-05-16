@@ -20,7 +20,7 @@ public class BaseTest {
 
     public WebDriverWait wait ;
 
-    public Actions actions ;
+    public static Actions  actions = null ;
 
     //public WebDriver driver;
 
@@ -41,7 +41,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
-        Actions actions = new Actions(driver);
+         actions = new Actions(driver);
 
         navigateToPage(baseUrl);
 

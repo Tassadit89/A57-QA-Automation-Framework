@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +16,8 @@ public class Homework21 extends BaseTest{
     public void renamePlaylist(){
 
 
+
+
         String expectedUpdateMsg = "Updated playlist \"My Zik \"";
 
         provideEmail("tassadit.talbi@testpro.io");
@@ -22,6 +25,7 @@ public class Homework21 extends BaseTest{
         clickLoginBtn();
         contextClickPlaylist();
         ChooseEditBtn();
+
         providePlaylistName();
         Assert.assertEquals(getUpdatedPlaylistSuccessMsg(),expectedUpdateMsg);
 
@@ -39,9 +43,12 @@ public class Homework21 extends BaseTest{
     }
 
     public void providePlaylistName() {
-        WebElement playlistField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']/ul//a[@href='#!/playlist/94449']")));
-        playlistField.clear();
-        playlistField.sendKeys("My Zik" );
+
+        String newPlaylistName= "My Zik ";
+        WebElement playlistField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[href='\\#\\!\\/playlist\\/94449']")));
+        playlistField.sendKeys(Keys.chord((CharSequence) Keys.CONTROL, "A" ,Keys.BACK_SPACE));
+        playlistField.sendKeys(newPlaylistName);
+        playlistField.sendKeys(Keys.ENTER);
 
 
 

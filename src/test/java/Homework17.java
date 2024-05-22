@@ -1,6 +1,7 @@
 
 import org.apache.commons.lang3.exception.UncheckedInterruptedException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -23,7 +24,7 @@ public class Homework17 extends BaseTest{
         Thread.sleep (2000);
         //Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
         //Thread.sleep (2000);
-        searchSong ("Frantic");
+        searchSong ("Epic Song");
         Thread.sleep (2000);
         clickViewALLBtn();
         Thread.sleep (2000);
@@ -41,14 +42,21 @@ public class Homework17 extends BaseTest{
 
     }
 
-
-
-    public String   getAddToPlaylistSuccessMsg() {
-        WebElement notification = driver.findElement(By.xpath("//div[@class= 'success show']"));
-        return notification.getText();
-
-
+    public String getAddToPlaylistSuccessMsg() {
+        String addToPlaylistMsgLocator= "div.success.show";
+        WebElement addToPlaylistMsgElement = driver.findElement(By.cssSelector(addToPlaylistMsgLocator));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", addToPlaylistMsgElement);
+        return addToPlaylistMsgElement.getText();
     }
+
+
+    //public String   getAddToPlaylistSuccessMsg() {
+        //WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
+        //return notification.getText();
+
+
+
 
     public void choosePlaylist (String playlistName) {
             WebElement playlist = driver.findElement (By.xpath( "//section[@id='playlists']/ul/li[5]"));

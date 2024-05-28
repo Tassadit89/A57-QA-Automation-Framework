@@ -14,9 +14,31 @@ public class HomePage extends BasePage{
     }
 
     By userAvatarIcon = By.cssSelector("img.avatar");
+    By playlist = By.cssSelector("section#playlists > ul > li:nth-of-type(8)");
+    By deleteBtn = By.cssSelector(".btn-delete-playlist");
+    By deleteMsg = By.cssSelector("div.success.show");
+
+
+
 
 
     public WebElement getAvatarIcon  (){
         return findElement(userAvatarIcon);
     }
+
+    public void clickOnPlaylist (){
+         findElement(playlist);
+
+
+    }
+
+    public void clickDeletePlaylist (){
+        findElement(deleteBtn);
+    }
+
+    public String getDeletedPlaylistMsg (){
+        return findElement(deleteMsg).getText();
+    }
+
+
 }

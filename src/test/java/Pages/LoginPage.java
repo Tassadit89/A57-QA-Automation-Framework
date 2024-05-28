@@ -13,12 +13,12 @@ public class LoginPage extends BasePage{
     By submitBtn= By.cssSelector("input[type='email']");
 
     public void provideEmail (String email ) {
-        findElement(emailField).sendKeys();
+        findElement(emailField).sendKeys(email);
 
     }
 
     public void providePassword(String password ){
-        findElement(passwordField).sendKeys();
+        findElement(passwordField).sendKeys(password);
     }
 
     public void clickSubmit(){

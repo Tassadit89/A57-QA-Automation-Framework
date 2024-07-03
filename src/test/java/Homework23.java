@@ -16,21 +16,6 @@ public void deletePlaylist() {
         homePage.clickPlaylist().clickDeleteBtn();
         Assert.assertEquals(homePage.getDeletedPlaylistMsg(),playlistDeletedMsg);
 
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
 }

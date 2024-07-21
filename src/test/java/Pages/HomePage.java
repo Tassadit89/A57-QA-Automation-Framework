@@ -45,7 +45,7 @@ public class HomePage extends BasePage{
     }
 
     public String getDeletedPlaylistMsg (){
-        return successNotificationMsg.getText();
+        return findElement(successNotificationMsg) .getText();
 
 
 

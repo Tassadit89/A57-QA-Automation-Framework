@@ -8,9 +8,6 @@
 
             <class name="Homework24"/>
 
-
-            <class name="BaseTest"/>
-
         </classes>
     </test>
 </suite>

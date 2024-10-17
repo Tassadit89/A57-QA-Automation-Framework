@@ -9,8 +9,8 @@ public class Homework23 extends BaseTest{
 
 public void deletePlaylist() {
        String  playlistDeletedMsg = "Deleted playlist\"New playlist\"";
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
         homePage.clickPlaylist().clickDeleteBtn();

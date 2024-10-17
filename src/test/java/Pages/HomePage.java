@@ -17,7 +17,7 @@ public class HomePage extends BasePage{
     //By userAvatarIcon = By.cssSelector("img.avatar");
     @FindBy(css="img.avatar")
     private WebElement userAvatarIcon ;
-    @FindBy(css="section#playlists > ul > li:nth-of-type(6)")
+    @FindBy(css="section#playlists > ul > li:nth-of-type(5)")
     private WebElement newPlaylist;
 
     @FindBy(css = ".btn-delete-playlist")

@@ -25,7 +25,7 @@ public class LoginCases extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.provideEmail("tassadit.talbitestpro.io").providePassword("Password").clickSubmit();
-        Assert.assertTrue(homePage.getAvatarIcon().isDisplayed());
+        Assert.assertTrue(homePage.);
 
 
 

@@ -53,12 +53,8 @@ public LoginPage clickSubmit (){
 }
 
 
-
-
-
-
-
-
-
+    public LoginPage getCurrentUrl() {
+        
+    }
 }
 

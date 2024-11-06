@@ -23,9 +23,10 @@ public class LoginCases extends BaseTest {
 
         HomePage homePage= new HomePage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
+        String expectedUrl= "https://qa.koel.app";
 
         loginPage.provideEmail("tassadit.talbitestpro.io").providePassword("Password").clickSubmit();
-        Assert.assertTrue(homePage.);
+        Assert.assertTrue(loginPage.getCurrentUrl(),expectedUrl);
 
 
 

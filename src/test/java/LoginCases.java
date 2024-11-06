@@ -1,5 +1,6 @@
 import Pages.HomePage;
 import Pages.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginCases extends BaseTest {
@@ -12,9 +13,29 @@ public class LoginCases extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
 
         loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
+        Assert.assertTrue(homePage.getAvatarIcon().isDisplayed());
 
 
     }
+
+    @Test
+    public void LoginWithIncorrectCredentials(){
+
+        HomePage homePage= new HomePage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.provideEmail("tassadit.talbitestpro.io").providePassword("Password").clickSubmit();
+        Assert.assertTrue(homePage.getAvatarIcon().isDisplayed());
+
+
+
+
+
+    }
+
+
+
+
 
 
 }

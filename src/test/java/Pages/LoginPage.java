@@ -1,11 +1,12 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
+
+    String Url ="https://qa.koel.app";
 
     @FindBy(css= "input[type='email']")
     private WebElement emailField;
@@ -53,7 +54,9 @@ public LoginPage clickSubmit (){
 }
 
 
-    public LoginPage getCurrentUrl() {
+    public LoginPage getCurrentUrl(String Url) {
+        driver.get(Url);
+        return this ;
         
     }
 }

@@ -29,6 +29,10 @@ public class LoginCases extends BaseTest {
         Assert.assertTrue(loginPage.getCurrentUrl(),expectedUrl);
 
 
+    }
+    
+
+
 
 
 

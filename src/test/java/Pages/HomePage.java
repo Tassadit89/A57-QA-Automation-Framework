@@ -26,6 +26,17 @@ public class HomePage extends BasePage{
 
 
 
+    @FindBy(css = "a.songs.active")
+    private WebElement allSongsBtn;
+
+    @FindBy(css ="[href='\\#\\!\\/playlist\\/100815']" )
+    private WebElement oldSongsPlaylist;
+
+    @FindBy(xpath ="//li[@class='has-sub']")
+    private WebElement addToBtn;
+
+
+
     public WebElement getAvatarIcon  (){
         return findElement(userAvatarIcon);
     }
@@ -47,4 +58,33 @@ public class HomePage extends BasePage{
         return successNotificationMsg.getText();
 
     }
+
+    public HomePage clickOnAllSongsBtn(){
+        allSongsBtn.click();
+        return this;
+
+
+    }
+
+    public HomePage clickOnAddToBtn(){
+        addToBtn.click();
+        return this ;
+    }
+
+    public HomePage clickOnOldSongsPlaylist(){
+
+        oldSongsPlaylist.click();
+        return this ;
+
+    }
+
+
+
+    public String getAddedSongSuccessMsg(){
+
+        return successNotificationMsg.getText();
+    }
+
+
+
 }

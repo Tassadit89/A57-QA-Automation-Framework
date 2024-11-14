@@ -21,14 +21,28 @@ public class ProfilePage extends BasePage{
     private WebElement profileNameField;
 
     @FindBy (css="button.btn-submit")
-    private WebElement submitButton;
+    private WebElement saveButton;
 
 
 
-    public ProfilePage changeProfileName (){
+    public ProfilePage provideCurrentPassword (){
+        currentPasswordField.clear();
+        currentPasswordField.sendKeys();
+        return this;
 
+    }
 
+    public ProfilePage provideProfileName(){
+        profileNameField.clear();
+        profileNameField.sendKeys();
+        return  this;
 
+    }
+
+    public ProfilePage clickSaveBtn(){
+
+        saveButton.click();
+        return this;
     }
 
 

@@ -22,9 +22,8 @@ public class AllSongs extends BaseTest {
     }
 
 
-
-@Test
-    public void addASongToAPlaylist(){
+    @Test
+    public void addASongToAPlaylist() {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         BasePage basePage = new BasePage(getDriver());
@@ -35,11 +34,9 @@ public class AllSongs extends BaseTest {
         homePage.clickOnAllSongsBtn();
         basePage.contextClickSong();
         homePage.clickOnAddToBtn().clickOnOldSongsPlaylist();
-        Assert.assertEquals(homePage.getAddedSongSuccessMsg(),successMsg);
-
-
-
+        Assert.assertEquals(homePage.getAddedSongSuccessMsg(), successMsg);
 
 
     }
 }
+lo

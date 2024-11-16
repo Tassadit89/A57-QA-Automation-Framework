@@ -23,16 +23,19 @@ public class ProfilePage extends BasePage{
     @FindBy (css="button.btn-submit")
     private WebElement saveButton;
 
+    @FindBy (css = "div.success.show")
+    private WebElement profileUpdatedMsg;
 
 
-    public ProfilePage provideCurrentPassword (){
+
+    public ProfilePage provideCurrentPassword (String currentPassword){
         currentPasswordField.clear();
         currentPasswordField.sendKeys();
         return this;
 
     }
 
-    public ProfilePage provideProfileName(){
+    public ProfilePage provideProfileName(String newProfileName){
         profileNameField.clear();
         profileNameField.sendKeys();
         return  this;
@@ -43,6 +46,10 @@ public class ProfilePage extends BasePage{
 
         saveButton.click();
         return this;
+    }
+
+    public String getUpdatedProfileMsg (){
+        return profileUpdatedMsg.getText();
     }
 
 

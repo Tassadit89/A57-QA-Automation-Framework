@@ -28,6 +28,7 @@ public class LoginCases extends BaseTest {
         String expectedUrl= "https://qa.koel.app";
 
         loginPage.provideEmail("tassadit.talbitestpro.io").providePassword("Password").clickSubmit();
+
         Assert.assertTrue(loginPage.getCurrentUrl(),expectedUrl);
 
 

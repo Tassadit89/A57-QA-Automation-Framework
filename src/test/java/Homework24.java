@@ -9,7 +9,7 @@ public class Homework24 extends BaseTest {
     @Test
 
     public void deletePlaylist() {
-        String  playlistDeletedMsg = "Deleted playlist\"New playlist\"";
+        String  playlistDeletedMsg = "Deleted playlist \"Zina Playlist.\"";
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
 

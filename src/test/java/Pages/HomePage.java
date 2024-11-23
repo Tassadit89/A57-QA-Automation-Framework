@@ -1,10 +1,8 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage{
 
@@ -17,8 +15,8 @@ public class HomePage extends BasePage{
     //By userAvatarIcon = By.cssSelector("img.avatar");
     @FindBy(css="img.avatar")
     private WebElement userAvatarIcon ;
-    @FindBy(css="section#playlists > ul > li:nth-of-type(6)")
-    private WebElement newPlaylist;
+    @FindBy(css="[href='\\#\\!\\/playlist\\/101075']")
+    private WebElement testPlaylist;
 
     @FindBy(css = ".btn-delete-playlist")
     private WebElement deleteButton ;
@@ -32,7 +30,7 @@ public class HomePage extends BasePage{
     }
 
     public HomePage clickPlaylist (){
-        newPlaylist.click();
+        testPlaylist.click();
         return this;
 
 

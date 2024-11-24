@@ -1,10 +1,4 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.time.Duration;
-import java.util.HashMap;
-
 import io.netty.handler.codec.http.DefaultHttpHeaders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +16,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.time.Duration;
+import java.util.HashMap;
 
 public class BaseTest {
 
@@ -90,23 +90,23 @@ public class BaseTest {
         }
     }
 
-    public WebDriver lambdaTest() throws MalformedURLException {
+    public WebDriver lambdaTest() throws MalformedURLException{
         String hubURL = "@hub.lambdatest.com/wd/hub";
-        String userName = "talbi.tassadit89";
+        String userName ="talbi.tassadit89";
         String accessKey = "OsD3QlDYPVHsN4V7qB7gtKnpmH6PWSyLBUCCewLofHftw3IrEp";
+        //Capabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("browserVersion", "126");
-
-        HashMap<String, Object> ltOptions = new HashMap<>();
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion","128");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
         ltOptions.put("username", userName);
         ltOptions.put("accessKey", accessKey);
-        ltOptions.put("project", "Untitled");
-        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("build", "Test");
+        ltOptions.put("project", "Cloud test");
         ltOptions.put("w3c", true);
+        ltOptions.put("plugin", "java-java");
         capabilities.setCapability("LT:Options", ltOptions);
-
-        return new RemoteWebDriver(new URL("https://" + userName + ":" + accessKey + hubURL), capabilities);
+       return  new RemoteWebDriver(new URL("https://" + userName +":" + accessKey + hubURL),capabilities);
     }
 
 

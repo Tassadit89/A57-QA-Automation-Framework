@@ -8,7 +8,7 @@ public class Homework23 extends BaseTest{
     @Test
 
 public void deletePlaylist() {
-       String  playlistDeletedMsg = "Deleted playlist\"New playlist\"";
+       String  playlistDeletedMsg = "Deleted playlist \"Modern Songs.\"";
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 

@@ -12,7 +12,7 @@ public class ProfilePage extends BasePage{
 
     }
 
-    @FindBy(css="input#inputProfileCurrentPassword")
+    @FindBy(css="#inputProfileCurrentPassword")
 
    private WebElement currentPasswordField;
 
@@ -25,17 +25,23 @@ public class ProfilePage extends BasePage{
 
     @FindBy (css = "div.success.show")
     private WebElement profileUpdatedMsg;
+    @FindBy(css = "input#inputProfileNewPassword")
+    private WebElement NewPasswordField;
 
+    @FindBy (css = ".view-profile")
+    private WebElement viewProfileBtn;
 
+    @FindBy (css = "div.error.show")
+    private WebElement errorMsg;
 
-    public ProfilePage provideCurrentPassword (String currentPassword){
-        currentPasswordField.clear();
-        currentPasswordField.sendKeys();
+    public ProfilePage provideCurrentPassword (String Password){
+       currentPasswordField.clear();
+        currentPasswordField.sendKeys(Password);
         return this;
 
     }
 
-    public ProfilePage provideProfileName(String newProfileName){
+    public ProfilePage provideProfileName(String Name ){
         profileNameField.clear();
         profileNameField.sendKeys();
         return  this;
@@ -52,10 +58,24 @@ public class ProfilePage extends BasePage{
         return profileUpdatedMsg.getText();
     }
 
+    public ProfilePage provideNewPassword (String NewPassword){
+        NewPasswordField.clear();
+        NewPasswordField.sendKeys(NewPassword);
+        return this;
+    }
+
+    public ProfilePage clickViewProfile(){
+        viewProfileBtn.click();
+        return this ;
+
+    }
+
+    public String getErrorMsg(){
+
+        return errorMsg.getText();
 
 
-
-
+    }
 
 
 

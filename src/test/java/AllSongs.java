@@ -14,7 +14,7 @@ public class AllSongs extends BaseTest {
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
 
-        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passworda2024@").clickSubmit();
         homePage.clickPlaylist().clickDeleteBtn();
         Assert.assertEquals(homePage.getDeletedPlaylistMsg(), playlistDeletedMsg);
 
@@ -32,7 +32,7 @@ public class AllSongs extends BaseTest {
 
         loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
         homePage.clickOnAllSongsBtn();
-        basePage.contextClickSong();
+       // basePage.contextClickSong();
         homePage.clickOnAddToBtn().clickOnOldSongsPlaylist();
         Assert.assertEquals(homePage.getAddedSongSuccessMsg(), successMsg);
 

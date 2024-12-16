@@ -118,4 +118,8 @@ public HomePage providePlaylistName(String playlistName){
         return playlistSuccessCreationMsg.getText();
  }
 
+ public String getPlaylistCreationErrorMsg(){
+
+ }
+
 }

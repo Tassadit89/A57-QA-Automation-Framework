@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="NewPlaylist">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="createNewPlaylistWithCorrectRequirements"/>
 
 
                 </methods>

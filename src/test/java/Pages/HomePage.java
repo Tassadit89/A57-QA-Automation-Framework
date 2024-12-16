@@ -34,6 +34,21 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
+    @FindBy (css="section#playlists  i[role='button']")
+
+    private WebElement createPlaylistButton;
+
+    @FindBy (css="nav > ul > li:nth-of-type(1)")
+
+    private WebElement newPlaylistSelection;
+
+    @FindBy (css = "input[name='name']")
+    private WebElement playlistNameField;
+
+    @FindBy(css ="div.success.show" )
+
+    private WebElement playlistSuccessCreationMsg;
+
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -82,5 +97,25 @@ public class HomePage extends BasePage {
         return successNotificationMsg.getText();
     }
 
+    public HomePage clickTheCreatePlaylistBtn(){
+
+        createPlaylistButton.click();
+        return this;
+    }
+public HomePage selectNewPlaylist(){
+    newPlaylistSelection.click();
+    return this ;
+
+}
+
+public HomePage providePlaylistName(String playlistName){
+        playlistNameField.clear();
+        playlistNameField.sendKeys(playlistName);
+        playlistNameField.submit();
+        return this;
+}
+ public String getPlaylistCreationSuccessMsg(){
+        return playlistSuccessCreationMsg.getText();
+ }
 
 }

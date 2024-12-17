@@ -1,0 +1,54 @@
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class RegistrationPage extends BasePage {
+
+
+
+
+    public RegistrationPage (WebDriver givenDriver){
+
+        super (givenDriver);
+
+    }
+    @FindBy (xpath = "//div[@id='app']//form/div[2]/a[@href='registration']")
+    private WebElement registrationBtn ;
+
+    @FindBy (css = "input[name='email']")
+    private WebElement emailRegistrationField;
+
+    @FindBy(css = "input#button")
+    private WebElement submitBtn
+
+
+
+
+
+
+
+    public RegistrationPage clickOnRegistrationBtn(){
+
+        registrationBtn.click();
+         return this ;
+    }
+
+    public RegistrationPage provideEmail(){
+        emailRegistrationField.clear();
+        emailRegistrationField.sendKeys();
+        return this ;
+    }
+
+    public RegistrationPage clickSubmit(){
+        submitBtn.click();
+        return this ;
+    }
+
+
+
+
+
+
+}

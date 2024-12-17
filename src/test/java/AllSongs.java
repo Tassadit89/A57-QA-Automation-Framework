@@ -32,7 +32,7 @@ public class AllSongs extends BaseTest {
 
         loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
         homePage.clickOnAllSongsBtn();
-        basePage.contextClickSong();
+      //  basePage.contextClickSong();
         homePage.clickOnAddToBtn().clickOnOldSongsPlaylist();
         Assert.assertEquals(homePage.getAddedSongSuccessMsg(), successMsg);
 

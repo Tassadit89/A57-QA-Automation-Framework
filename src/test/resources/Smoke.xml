@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="AccountCreation">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="createAccountWithCorrectCredentials"/>
 
 
                 </methods>

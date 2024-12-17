@@ -21,7 +21,11 @@ public class RegistrationPage extends BasePage {
     private WebElement emailRegistrationField;
 
     @FindBy(css = "input#button")
-    private WebElement submitBtn
+    private WebElement submitBtn;
+
+    @FindBy (css = "div.messages")
+
+    private WebElement confirmationLinkMsg;
 
 
 
@@ -35,9 +39,9 @@ public class RegistrationPage extends BasePage {
          return this ;
     }
 
-    public RegistrationPage provideEmail(){
+    public RegistrationPage provideEmail(String email){
         emailRegistrationField.clear();
-        emailRegistrationField.sendKeys();
+        emailRegistrationField.sendKeys(email);
         return this ;
     }
 
@@ -46,7 +50,13 @@ public class RegistrationPage extends BasePage {
         return this ;
     }
 
+public String getConfirmationLinkMsg(){
 
+       return confirmationLinkMsg.getText();
+
+
+
+}
 
 
 

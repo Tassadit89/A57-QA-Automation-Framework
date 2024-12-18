@@ -1,3 +1,4 @@
+import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.RegistrationPage;
 import org.testng.Assert;
@@ -77,8 +78,11 @@ public class AccountCreation extends BaseTest{
 @Test
     public void loginToNewAccountAfterRegistration(){//pass
         RegistrationPage registrationPage= new RegistrationPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+
         LoginPage loginPage = new LoginPage(getDriver());
-       loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2025@").clickSubmit();
+       loginPage.provideEmail("tassadit.talbi+2@testpro.io").providePassword("Ut2Ds4O9").clickSubmit();
+       Assert.assertTrue(homePage.getAvatarIcon().isDisplayed());
        
     }
 

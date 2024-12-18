@@ -12,7 +12,7 @@
 
             <class name="AccountCreation">
 
-                <methods> <include name="createAccountWithoutTestproDomain"/>
+                <methods> <include name="loginToNewAccountAfterRegistration"/>
 
 
                 </methods>

@@ -9,7 +9,7 @@ public class AccountCreation extends BaseTest{
 
     @Test
 
-    public void createAccountWithCorrectCredentials(){
+    public void createAccountWithCorrectCredentials(){//pass
 
         String LinkConfirmationMsg ="We've sent a confirmation link to the email.Please continue by clicking on it";
 
@@ -20,9 +20,21 @@ public class AccountCreation extends BaseTest{
     }
     @Test
 
-    public void createAccountWithoutSpecialSymbol(){
+    public void createAccountWithoutSpecialSymbol(){ //pass
 
-        String errorMsg ="We've sent a confirmation link to the email.Please continue by clicking on it";
+        String errorMsg ="Please include an \'@\' in the email address.'tassadit.talbitestpro.io' is missing an \'@\'.";
+
+        RegistrationPage registrationPage= new RegistrationPage(getDriver());
+        registrationPage.clickOnRegistrationBtn().provideEmail("talbi.tassadittestpro.io").clickSubmit();
+        Assert.assertEquals(registrationPage.getSymbolErrorMsg(),errorMsg);
+
+    }
+    @Test
+
+
+    public void createAccountwithoutdot(){//fail; i dont know how to assert here
+
+        String errorMsg ="";
 
         RegistrationPage registrationPage= new RegistrationPage(getDriver());
         registrationPage.clickOnRegistrationBtn().provideEmail("talbi.tassadittestpro.io").clickSubmit();
@@ -30,31 +42,19 @@ public class AccountCreation extends BaseTest{
 
     }
     @Test
+    public void createAccountWithoutTestproDomain(){ //pass
 
-
-    public void createAccountwithoutdot(){
-
-        String errorMsg ="We've sent a confirmation link to the email.Please continue by clicking on it";
+        String errorMsg ="Sorry, only certain emails are allowed.Please do not use your personal email";
 
         RegistrationPage registrationPage= new RegistrationPage(getDriver());
-        registrationPage.clickOnRegistrationBtn().provideEmail("talbi.tassadittestpro.io").clickSubmit();
-        Assert.assertEquals(registrationPage.getConfirmationLinkMsg(),errorMsg);
-
-    }
-    @Test
-    public void createAccountWithoutTestproDomain(){
-
-        String errorMsg ="We've sent a confirmation link to the email.Please continue by clicking on it";
-
-        RegistrationPage registrationPage= new RegistrationPage(getDriver());
-        registrationPage.clickOnRegistrationBtn().provideEmail("talbi.tassadittestpro.io").clickSubmit();
-        Assert.assertEquals(registrationPage.getConfirmationLinkMsg(),errorMsg);
+        registrationPage.clickOnRegistrationBtn().provideEmail("talbi.tassadit@gmail.com").clickSubmit();
+        Assert.assertEquals(registrationPage.getDomainErrorMsg(),errorMsg);
 
     }
 
     @Test
 
-    public void createAccountWithPlusSign(){
+    public void createAccountWithPlusSign(){ //fail dont know how to assert
 
         String errorMsg ="We've sent a confirmation link to the email.Please continue by clicking on it";
 
@@ -66,7 +66,7 @@ public class AccountCreation extends BaseTest{
 
     @Test
 
-    public void createAccountWithAnExistingEmail(){
+    public void createAccountWithAnExistingEmail(){//fail dot know how to assert
         String errorMsg ="We've sent a confirmation link to the email.Please continue by clicking on it";
 
         RegistrationPage registrationPage= new RegistrationPage(getDriver());
@@ -74,11 +74,11 @@ public class AccountCreation extends BaseTest{
         Assert.assertEquals(registrationPage.getConfirmationLinkMsg(),errorMsg);
 
     }
-
-    public void loginToNewAccountAfterRegistration(){
+@Test
+    public void loginToNewAccountAfterRegistration(){//pass
         RegistrationPage registrationPage= new RegistrationPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
-       loginPage.provideEmail().providePassword().clickSubmit();
+       loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2025@").clickSubmit();
        
     }
 

@@ -27,6 +27,13 @@ public class RegistrationPage extends BasePage {
 
     private WebElement confirmationLinkMsg;
 
+    @FindBy (css = "form[method='post'] > p:nth-of-type(3)")
+    private WebElement symbolErrorMsg;
+
+    @FindBy (css = "form[method='post'] > .errors")
+
+    private WebElement domainErrorMsg;
+
 
 
 
@@ -56,6 +63,15 @@ public String getConfirmationLinkMsg(){
 
 
 
+}
+
+public String getSymbolErrorMsg(){
+        return symbolErrorMsg.getText();
+
+}
+
+public String getDomainErrorMsg(){
+        return domainErrorMsg.getText();
 }
 
 

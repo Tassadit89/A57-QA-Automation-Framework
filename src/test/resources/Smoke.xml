@@ -12,7 +12,7 @@
 
             <class name="Passwordup">
 
-                <methods> <include name="updatePasswordWithoutSpecialCharacter"/>
+                <methods> <include name="updatePasswordWithMoreThenFifteenCharacters"/>
 
 
                 </methods>

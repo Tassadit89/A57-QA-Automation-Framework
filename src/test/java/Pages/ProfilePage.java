@@ -74,6 +74,10 @@ public class ProfilePage extends BasePage{
 
         return errorMsg.getText();
 
+    }
+
+    public boolean getUpdatedPasswordMsg(){
+        return profileUpdatedMsg.isDisplayed();
 
     }
 

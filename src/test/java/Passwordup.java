@@ -37,11 +37,11 @@ public class Passwordup extends BaseTest{
     public void updatePasswordWithMoreThenFifteenCharacters(){ // need error message
         LoginPage loginPage = new LoginPage(getDriver());
         ProfilePage profilePage = new ProfilePage(getDriver());
-        String errorNotification = "Profile updated.";
+        String successNotification = "Profile updated.";
 
         loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2025@").clickSubmit();
         profilePage.clickViewProfile().provideCurrentPassword("Password2025@").provideNewPassword("Passwordtest2025@").clickSaveBtn();
-        Assert.assertEquals(profilePage.getErrorMsg(),errorNotification);
+        Assert.assertFalse(profilePage.getUpdatedPasswordMsg(),successNotification);
 
 
     }

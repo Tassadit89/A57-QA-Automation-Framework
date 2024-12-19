@@ -36,7 +36,7 @@ public class NewPlaylist extends BaseTest {
 
         loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2025@").clickSubmit();
         homePage.clickTheCreatePlaylistBtn().selectNewPlaylist().providePlaylistName("New playlist");
-        Assert.
+        Assert.assertFalse();
 
     }
 

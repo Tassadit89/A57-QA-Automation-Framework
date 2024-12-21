@@ -25,7 +25,7 @@ public class HomePage extends BasePage {
     private WebElement successNotificationMsg;
 
 
-    @FindBy(css = "a.songs.active")
+    @FindBy(css = ".songs")
     private WebElement allSongsBtn;
 
     @FindBy(css = "[href='\\#\\!\\/playlist\\/100815']")
@@ -34,6 +34,18 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
+   @FindBy (css = ".items button[title='Like HoliznaCC0 - Way Of The Samurai by Unknown Artist']" )
+   private WebElement holiznaLikeBtn;
+
+   @FindBy (css = "tr:nth-of-type(3)  button[title='Like Riqui-Riqui by REW<<']")
+   private WebElement riquiLikeBtn;
+
+   @FindBy (css = ".favorites.playlist")
+   private WebElement favoritePlaylist;
+
+   @FindBy(css = ("section#favoritesWrapper > .screen-header  .meta.text-secondary > span"))
+
+   private WebElement favoriteSongCount;
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -82,5 +94,23 @@ public class HomePage extends BasePage {
         return successNotificationMsg.getText();
     }
 
+    public HomePage clickHoliznaLikeBtn(){
+        holiznaLikeBtn.click();
+        return this;
+    }
 
+    public HomePage clickRiquiLikeBtn(){
+        riquiLikeBtn.click();
+        return this;
+    }
+
+    public HomePage clickFavoritePlaylist(){
+
+        favoritePlaylist.click();
+        return this;
+    }
+
+    public String getSongCountText(){
+        return favoriteSongCount.getText();
+    }
 }

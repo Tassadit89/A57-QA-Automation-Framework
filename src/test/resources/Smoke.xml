@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="Favorites">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="addSongsToFavorites"/>
 
 
                 </methods>

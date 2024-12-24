@@ -34,18 +34,53 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
-   @FindBy (css = ".items button[title='Like HoliznaCC0 - Way Of The Samurai by Unknown Artist']" )
-   private WebElement holiznaLikeBtn;
+    @FindBy(css = ".items button[title='Like HoliznaCC0 - Way Of The Samurai by Unknown Artist']")
+    private WebElement holiznaLikeBtn;
 
-   @FindBy (css = "tr:nth-of-type(3)  button[title='Like Riqui-Riqui by REW<<']")
-   private WebElement riquiLikeBtn;
+    @FindBy(css = "tr:nth-of-type(3)  button[title='Like Riqui-Riqui by REW<<']")
+    private WebElement riquiLikeBtn;
 
-   @FindBy (css = ".favorites.playlist")
-   private WebElement favoritePlaylist;
+    @FindBy(css = ".favorites.playlist")
+    private WebElement favoritePlaylist;
 
-   @FindBy(css = ("section#favoritesWrapper > .screen-header  .meta.text-secondary > span"))
+    @FindBy(css = ("section#favoritesWrapper > .screen-header  .meta.text-secondary > span"))
 
-   private WebElement favoriteSongCount;
+    private WebElement favoriteSongCount;
+
+    @FindBy(css = "section#favoritesWrapper .item-container > .items button[title='Unlike HoliznaCC0 - Way Of The Samurai by Unknown Artist']")
+
+    private WebElement holiznaUnlikeBtn;
+
+
+    @FindBy(css = "section#favoritesWrapper .item-container > .items button[title='Unlike Riqui-Riqui by REW<<']")
+
+    private WebElement riquiUnlikeBtn;
+
+
+    @FindBy(css = "section#favoritesWrapper .item-container > .items button[title='Unlike For the Poor by Dan Brasco']")
+
+    private WebElement brascoUnlikeBtn;
+
+
+    @FindBy(css = "section#favoritesWrapper .item-container > .items button[title^='Unlike Scott Holmes Music - Soft Inspiration by Unknown Arti']")
+
+    private WebElement scottUnlikeBtn;
+
+
+    @FindBy(css = "section#favoritesWrapper .text")
+
+    private WebElement noFavoritesMsg;
+
+
+    @FindBy(css = ".song-menu .download")
+
+    private WebElement downlaodBtn;
+
+
+    @FindBy(css = "body > iframe:nth-of-type(5)")
+
+    private WebElement downlaodElement;
+
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -94,23 +129,73 @@ public class HomePage extends BasePage {
         return successNotificationMsg.getText();
     }
 
-    public HomePage clickHoliznaLikeBtn(){
+    public HomePage clickHoliznaLikeBtn() {
         holiznaLikeBtn.click();
         return this;
     }
 
-    public HomePage clickRiquiLikeBtn(){
+    public HomePage clickRiquiLikeBtn() {
         riquiLikeBtn.click();
         return this;
     }
 
-    public HomePage clickFavoritePlaylist(){
+    public HomePage clickFavoritePlaylist() {
 
         favoritePlaylist.click();
         return this;
     }
 
-    public String getSongCountText(){
+    public String getSongCountText() {
         return favoriteSongCount.getText();
     }
+
+
+    public HomePage unlikeHoliznaSong() {
+        holiznaUnlikeBtn.click();
+        return this;
+
+    }
+
+
+    public HomePage unlikeRiquiSong() {
+        riquiUnlikeBtn.click();
+
+        return this;
+    }
+
+    public HomePage unlikeBrascoSong() {
+
+        brascoUnlikeBtn.click();
+
+        return this;
+    }
+
+    public HomePage unlikeScottSong() {
+
+        scottUnlikeBtn.click();
+        return this;
+    }
+
+    public String getNofavoritesyetMsg() {
+        return noFavoritesMsg.getText();
+    }
+
+
+    public HomePage clickDownlaoadBtn() {
+        downlaodBtn.click();
+        return this;
+    }
+
+
+    public boolean getDownlaodNotification(){
+
+        downlaodElement.isDisplayed();
+
+        return this;
+    }
+
 }
+
+
+
+

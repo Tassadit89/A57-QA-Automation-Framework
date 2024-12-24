@@ -45,7 +45,7 @@ public class BasePage {
 
     }
 
-    protected  void contextClickSong (WebElement webElement) {
+    public   void contextClickSong () {
         actions.contextClick(findElement(riquiriquiSong)).perform();
     }
 

@@ -12,7 +12,7 @@
 
             <class name="Favorites">
 
-                <methods> <include name="addSongsToFavorites"/>
+                <methods> <include name="downlaodSongdFromFavorites"/>
 
 
                 </methods>

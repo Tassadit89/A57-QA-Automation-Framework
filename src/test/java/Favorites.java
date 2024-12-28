@@ -1,4 +1,5 @@
 import Pages.BasePage;
+import Pages.DownlaodPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import org.testng.Assert;
@@ -38,20 +39,23 @@ String noFavoriteMsg = "No favorites yet.\n" +
     @Test
 
     public void downlaodSongdFromFavorites(){
+
+       String downloadDir = "C:\\Users\\Zina\\Downloads"; // Set the path to your download folder
+        String songFileName = "REW_-Riqui-Riqui(8)"; // Set the expected downloaded file name
+
        LoginPage loginPage=new LoginPage(getDriver());
        HomePage homePage = new HomePage(getDriver());
         BasePage basePage = new BasePage(getDriver());
+        DownlaodPage downloadPage = new DownlaodPage(getDriver());
 
 
     loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
     homePage.clickFavoritePlaylist();
     basePage.contextClickSong();
     homePage.clickDownlaoadBtn();
+    Assert.assertTrue(downloadPage.isFileDownloaded());
 
 
     }
-
-
-
 
 }

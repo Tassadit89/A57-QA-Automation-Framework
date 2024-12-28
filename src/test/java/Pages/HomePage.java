@@ -77,7 +77,7 @@ public class HomePage extends BasePage {
     private WebElement downlaodBtn;
 
 
-    @FindBy(css = "body > iframe:nth-of-type(5)")
+    @FindBy(css = "body > iframe:nth-of-type(6)")
 
     private WebElement downlaodElement;
 
@@ -189,9 +189,9 @@ public class HomePage extends BasePage {
 
     public boolean getDownlaodNotification(){
 
-        downlaodElement.isDisplayed();
+        return downlaodElement.isDisplayed();
 
-        return this;
+
     }
 
 }

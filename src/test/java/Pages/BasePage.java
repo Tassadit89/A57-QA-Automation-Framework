@@ -26,7 +26,7 @@ public class BasePage {
         PageFactory.initElements(driver,this);
 
     }
-    @FindBy(css = "tr.song-item.selected")
+    @FindBy(css = "section#favoritesWrapper .items > tr:nth-of-type(2)")
     private WebElement riquiriquiSong ;
 
     protected WebElement findElement (WebElement WebElement ){

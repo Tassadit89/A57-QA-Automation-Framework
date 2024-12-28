@@ -47,6 +47,8 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get(baseUrl);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+
     }
 
     @AfterMethod
@@ -86,6 +88,7 @@ public class BaseTest {
                 options.addArguments("--disable-notifications", "--remote-allow-origins=*", "--incognito", "--start-maximized");
                 options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                 return new ChromeDriver(options);
+
 
         }
     }

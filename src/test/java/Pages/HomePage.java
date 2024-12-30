@@ -34,6 +34,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
+    @FindBy (css = "span#userBadge > a[title='View/edit user profile']")
+    private WebElement viewProfileField;
+
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -80,6 +83,13 @@ public class HomePage extends BasePage {
     public String getAddedSongSuccessMsg() {
 
         return successNotificationMsg.getText();
+
+    }
+
+    public HomePage clickOnViewProfile(){
+
+        viewProfileField.click();
+        return this;
     }
 
 

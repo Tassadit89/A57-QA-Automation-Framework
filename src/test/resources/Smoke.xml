@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="UpdateEmail">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="updateEmailWithoutAtSymbol"/>
 
 
                 </methods>

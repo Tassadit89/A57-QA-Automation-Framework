@@ -26,11 +26,15 @@ public class ProfilePage extends BasePage{
     @FindBy (css = "div.success.show")
     private WebElement profileUpdatedMsg;
 
+    @FindBy(css = "input#inputProfileEmail")
+    private WebElement emailInputField;
+
+
 
 
     public ProfilePage provideCurrentPassword (String currentPassword){
         currentPasswordField.clear();
-        currentPasswordField.sendKeys();
+        currentPasswordField.sendKeys(currentPassword);
         return this;
 
     }
@@ -52,6 +56,15 @@ public class ProfilePage extends BasePage{
         return profileUpdatedMsg.getText();
     }
 
+    public ProfilePage provideNewEmail(String newEmail){
+        emailInputField.clear();
+        emailInputField.sendKeys(newEmail);
+        return this;
+
+    }
+public boolean getUpdatedProfileNotif(){
+        return profileUpdatedMsg.isDisplayed();
+}
 
 
 

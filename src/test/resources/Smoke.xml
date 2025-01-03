@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Smoke" parallel = "methods" thread-count="2">
-    <parameter name="baseUrl" value= "https://qa.koel.app/"/>
+    <parameter name="baseUrl" value= "https://opensource-demo.orangehrmlive.com/"/>
     <test name="Smoke Test" preserve-order="false">
         <classes>
 
@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="OrangeLogin">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="loginWithValidCredentials"/>
 
 
                 </methods>

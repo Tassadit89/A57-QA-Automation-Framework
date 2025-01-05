@@ -29,6 +29,9 @@ public class ProfilePage extends BasePage{
     @FindBy(css = "input#inputProfileEmail")
     private WebElement emailInputField;
 
+    @FindBy(css = "div.error.show")
+    private WebElement emailErrorMsg;
+
 
 
 
@@ -64,6 +67,11 @@ public class ProfilePage extends BasePage{
     }
 public boolean getUpdatedProfileNotif(){
         return profileUpdatedMsg.isDisplayed();
+}
+
+public String getEmailUpdateErrorMsg(){
+
+        return emailErrorMsg.getText();
 }
 
 

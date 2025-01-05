@@ -19,6 +19,8 @@ public class LoginPage extends BasePage{
 
 
 
+
+
     public LoginPage(WebDriver givenDriver){
 
         super(givenDriver);
@@ -56,8 +58,19 @@ public LoginPage clickSubmit (){
 
     public LoginPage getCurrentUrl(String Url) {
         driver.get(Url);
-        return this ;
+       return this ;
+
         
     }
+
+public boolean isLoginBtnEnabled(){
+        return submitBtn.isEnabled();
 }
+
+
+
+}
+
+
+
 

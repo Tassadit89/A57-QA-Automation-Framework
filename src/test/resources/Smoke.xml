@@ -12,7 +12,7 @@
 
             <class name="UpdateEmail">
 
-                <methods> <include name="updateEmailWithoutAtSymbol"/>
+                <methods> <include name="loginWithOldEmail"/>
 
 
                 </methods>

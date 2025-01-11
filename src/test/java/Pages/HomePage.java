@@ -34,6 +34,26 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
+    @FindBy(css = "div#searchForm > input[name='q']")
+
+    private WebElement searchField;
+
+    @FindBy (css = ".songs > ul")
+
+    private WebElement songResult;
+
+
+    @FindBy(css = ".results .artists")
+
+    private WebElement artistResult;
+
+    @FindBy (css = ".results .albums")
+
+    private WebElement albumResult;
+
+    @FindBy(css ="section#searchExcerptsWrapper" )
+
+    private WebElement searchResultSection;
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -80,7 +100,53 @@ public class HomePage extends BasePage {
     public String getAddedSongSuccessMsg() {
 
         return successNotificationMsg.getText();
+
     }
+
+    public HomePage provideSongName(String Song){
+
+        searchField.clear();
+        searchField.sendKeys(Song);
+        return  this ;
+
+    }
+
+    public String verifySongResult(){
+       return songResult.getText();
+
+    }
+
+    public boolean verifyArtistResult(){
+        return artistResult.isDisplayed();
+
+    }
+
+
+    public boolean verifyAlbumResult(){
+        return albumResult.isDisplayed();
+
+    }
+
+    public boolean isSearchResultDisplayed(){
+        return searchResultSection.isDisplayed();
+    }
+public HomePage clearTheSearchResult(){
+        searchField.clear();
+        return this;
+}
+
+
+public String clickOnSearchField(){
+
+     return   searchField.getAttribute("placeholder");
+
+
+}
+
+public HomePage clickOnXBtn(){
+        searchField.click();
+        return this;
+}
 
 
 }

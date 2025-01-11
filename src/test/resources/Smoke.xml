@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="Search">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="verifyUserCanClearSearchWithXBtn"/>
 
 
                 </methods>

@@ -38,7 +38,7 @@ String noFavoriteMsg = "No favorites yet.\n" +
 
     @Test
 
-    public void downlaodSongdFromFavorites(){
+    public void downlaodSongdFromFavorites(){  //dont know how to write code for downlaod 
 
        String downloadDir = "C:\\Users\\Zina\\Downloads"; // Set the path to your download folder
         String songFileName = "REW_-Riqui-Riqui(8)"; // Set the expected downloaded file name

@@ -105,7 +105,9 @@ public LoginPage provideOrangePassword(String password){
     return this;
     }
 
-
+public boolean isLoginBtnEnabled(){
+    return sbmtBtn.isEnabled();
+}
 
 
 

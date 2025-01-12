@@ -12,7 +12,7 @@
 
             <class name="OrangeLogin">
 
-                <methods> <include name="loginWithValidCredentials"/>
+                <methods> <include name="verifyUserIsRedirectedToDashboardPageUponSuccessfulLogin"/>
 
 
                 </methods>

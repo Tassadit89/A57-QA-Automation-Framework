@@ -34,6 +34,10 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
+    @FindBy (css = "li:nth-of-type(8) > .oxd-main-menu-item")
+
+    private WebElement dashbrdPage;
+
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -81,6 +85,15 @@ public class HomePage extends BasePage {
 
         return successNotificationMsg.getText();
     }
+
+    public boolean isDashboardPageDisplayed(){
+        return dashbrdPage.isDisplayed();
+    }
+
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
+
 
 
 }

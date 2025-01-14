@@ -59,5 +59,56 @@ public LoginPage clickSubmit (){
         return this ;
         
     }
+
+    //this code is for OrangeHR app/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FindBy (css = "input[name='username']")
+
+    private WebElement userNameField;
+
+
+    @FindBy (css = "input[name='password']")
+
+    private  WebElement passwrdField ;
+
+    @FindBy (css = ".orangehrm-login-action.oxd-form-actions > .orangehrm-login-button.oxd-button.oxd-button--main.oxd-button--medium")
+
+    private WebElement sbmtBtn;
+
+    @FindBy (css = ".oxd-userdropdown  img[alt='profile picture']")
+
+    private WebElement avatarIcn;
+
+
+    public LoginPage provideUserName(String userName){
+        userNameField.sendKeys(userName);
+        return this ;
+    }
+
+    public LoginPage provideOrangePassword(String password){
+
+        passwrdField.sendKeys(password);
+        return this;
+
+
+    }
+
+    public boolean isAvatarIconDisplayed(){
+
+        return avatarIcn.isDisplayed();
+    }
+
+
+    public LoginPage clickOnSubmitBtn(){
+
+        sbmtBtn.click();
+        return this;
+    }
+
+    public boolean isLoginBtnEnabled(){
+        return sbmtBtn.isEnabled();
+    }
+
+
 }
 

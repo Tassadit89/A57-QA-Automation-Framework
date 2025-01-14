@@ -82,5 +82,31 @@ public class HomePage extends BasePage {
         return successNotificationMsg.getText();
     }
 
+    ///////////////////////////////////////////////////////// this is for orangehr website ///////////////////////////////////
+    @FindBy(css = "li:nth-of-type(8) > .oxd-main-menu-item")
+
+    private WebElement dashbrdPage;
+    @FindBy(css = (".oxd-main-menu > li:nth-of-type(2)"))
+
+    private WebElement pimBtn;
+
+
+    public boolean isDashboardPageDisplayed() {
+        return dashbrdPage.isDisplayed();
+    }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+
+
+    }
+    public HomePage clickOnPimBtn(){
+
+        pimBtn.click();
+        return  this ;
+
+    }
+
+
 
 }

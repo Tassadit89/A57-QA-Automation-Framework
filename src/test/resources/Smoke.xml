@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="Albums">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="verifyAlbumSongCountIsDisplayed"/>
 
 
                 </methods>

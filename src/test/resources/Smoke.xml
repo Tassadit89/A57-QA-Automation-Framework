@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="AllSongs">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="VerifyTimeIsCorrectlyDisplayed"/>
 
 
                 </methods>

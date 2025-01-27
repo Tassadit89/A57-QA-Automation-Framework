@@ -1,41 +1,86 @@
-import Pages.BasePage;
-import Pages.HomePage;
+import Pages.AllSongsPage;
 import Pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AllSongs extends BaseTest {
-
+public class AllSongs extends BaseTest{
 
     @Test
 
-    public void deletePlaylist() {
-        String playlistDeletedMsg = "Deleted playlist\"New playlist\"";
+    public void VerifyTotalCountAndDurationOfSongsIsDisplayed(){
+
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        String songCountDurationText= "66 songs.04:32:57";
 
-        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
-        homePage.clickPlaylist().clickDeleteBtn();
-        Assert.assertEquals(homePage.getDeletedPlaylistMsg(), playlistDeletedMsg);
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
+        allSongsPage.clickOnAllSongs();
+        Assert.assertTrue(allSongsPage.isSongsCountAndDurationDisplayed(),songCountDurationText);
+    }
 
+    @Test
 
+    public void VerifyIdIsCorrectlyDisplayed(){
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        String songIdText= "#";
+
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
+        allSongsPage.clickOnAllSongs();
+        Assert.assertTrue(allSongsPage.isSongIdDisplayed(),songIdText);
     }
 
 
     @Test
-    public void addASongToAPlaylist() {
+
+    public void VerifyArtistIsCorrectlyDisplayed(){
+
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homePage = new HomePage(getDriver());
-        BasePage basePage = new BasePage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        String songArtistText= "Artist";
 
-        String successMsg = "Added 1 song into \"Old Songs.\"";
-
-        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Password2026@").clickSubmit();
-        homePage.clickOnAllSongsBtn();
-        basePage.contextClickSong();
-        homePage.clickOnAddToBtn().clickOnOldSongsPlaylist();
-        Assert.assertEquals(homePage.getAddedSongSuccessMsg(), successMsg);
-
-
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
+        allSongsPage.clickOnAllSongs();
+        Assert.assertTrue(allSongsPage.isSongArtistTabDisplayed(),songArtistText);
     }
+    @Test
+
+    public void VerifyTitleIsCorrectlyDisplayed(){
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        String songTitleText= "TITLE";
+
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
+        allSongsPage.clickOnAllSongs();
+        Assert.assertTrue(allSongsPage.isSongTitleTabDisplayed(),songTitleText);
+    }
+    @Test
+
+    public void VerifyAlbumIsCorrectlyDisplayed(){
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        String songAlbumText= "ALBUM";
+
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
+        allSongsPage.clickOnAllSongs();
+        Assert.assertTrue(allSongsPage.isSongAlbumTabDisplayed(),songAlbumText);
+    }
+    @Test
+
+    public void VerifyTimeIsCorrectlyDisplayed(){
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        AllSongsPage allSongsPage = new AllSongsPage(getDriver());
+        String songTimeText= "TIME";
+
+        loginPage.provideEmail("tassadit.talbi@testpro.io").providePassword("Passwordtest2025@").clickSubmit();
+        allSongsPage.clickOnAllSongs();
+        Assert.assertTrue(allSongsPage.isSongTimeFieldDisplayed(),songTimeText);
+    }
+
+
+
 }

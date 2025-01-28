@@ -25,16 +25,30 @@ public class HomePage extends BasePage {
     private WebElement successNotificationMsg;
 
 
-    @FindBy(css = "a.songs.active")
+    @FindBy(css = ".songs")
     private WebElement allSongsBtn;
 
     @FindBy(css = "[href='\\#\\!\\/playlist\\/100815']")
     private WebElement oldSongsPlaylist;
 
-    @FindBy(xpath = "//li[@class='has-sub']")
+    @FindBy(css = ".has-sub")
     private WebElement addToBtn;
 
+    @FindBy (css = "section#playlists  i[role='button']")
+    private WebElement createPlaylistBtn;
+    @FindBy (css = "nav > ul > li:nth-of-type(1)")
+    private WebElement newPlaylistDropDown;
 
+    @FindBy(css = "input[name='name']")
+
+    private WebElement inputField;
+
+@FindBy ( css = ".menu.menu-add-to.submenu > li:nth-of-type(9)")
+private WebElement myPlaylist;
+
+@FindBy (css = ".items > tr:nth-of-type(15)")
+
+private WebElement plutoSong;
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
     }
@@ -69,6 +83,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
+
     public HomePage clickOnOldSongsPlaylist() {
 
         oldSongsPlaylist.click();
@@ -82,5 +97,41 @@ public class HomePage extends BasePage {
         return successNotificationMsg.getText();
     }
 
+
+
+    public HomePage clickOnCreatePlaylistBtn(){
+        createPlaylistBtn.click();
+        return this;
+    }
+
+    public HomePage clickOnCreateNewPlaylistDropDown(){
+        newPlaylistDropDown.click();
+        return this;
+    }
+
+    public HomePage WritePlaylistName(String playlistName){
+        inputField.clear();
+        inputField.sendKeys(playlistName);
+        inputField.submit();
+        return  this;
+    }
+
+public String getSuccessNotification(){
+
+        return successNotificationMsg.getText();
+}
+
+public void contextClickPlutoSong(){
+        actions.contextClick(plutoSong).perform();
+}
+
+public HomePage clickOnMyPlaylist(){
+        myPlaylist.click();
+        return  this;
+}
+
+public void moveToAddToBtn(){
+        actions.moveToElement(addToBtn).perform();
+}
 
 }

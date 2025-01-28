@@ -10,9 +10,9 @@
 
 
 
-            <class name="LoginCases">
+            <class name="AddSongToNewPlaylist">
 
-                <methods> <include name="loginWithCorrectCredentials"/>
+                <methods> <include name="createNewPlaylistWith257Characters"/>
 
 
                 </methods>

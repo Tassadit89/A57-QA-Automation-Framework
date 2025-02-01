@@ -1,8 +1,11 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends BasePage {
 
@@ -34,6 +37,42 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[@class='has-sub']")
     private WebElement addToBtn;
 
+    @FindBy (css = "section#playlists  i[role='button']")
+    private WebElement createPlaylistBtn;
+
+    @FindBy (css = "nav > ul > li:nth-of-type(2)")
+
+    private WebElement smartPlaylistDropD;
+
+    @FindBy (css = "input[name='name']")
+    private WebElement smartPlaylistInput;
+
+    @FindBy (css = ".row > select[name='model[]']")
+    private WebElement selectDropDown;
+
+    @FindBy (xpath = "//div[@id='mainWrapper']//div[@class='smart-playlist-form']/div/form//div[@class='rule-group']/div[@class='row']/select[@name='model[]']/option[1]")
+    private WebElement titleSelectDropDown;
+
+
+    @FindBy (css = ".row > select[name='operator[]']")
+    private WebElement secondSelectDropDown;
+
+
+    @FindBy (css = "select[name='operator[]'] > option:nth-of-type(1)")
+    private WebElement selectIsDropDown;
+
+    @FindBy(css = "input[name='value[]']")
+    private WebElement inputField;
+
+@FindBy (css = "footer > button:nth-of-type(1)")
+private WebElement saveBtn;
+
+@FindBy(css = "[href='\\#\\!\\/playlist\\/102263']")
+private WebElement smartPlaylist;
+
+@FindBy(css = "section#playlistWrapper .items > .song-item")
+private WebElement songDarkDays;
+
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -42,7 +81,6 @@ public class HomePage extends BasePage {
     public HomePage clickPlaylist() {
         newPlaylist.click();
         return this;
-
 
     }
 
@@ -54,14 +92,11 @@ public class HomePage extends BasePage {
 
     public String getDeletedPlaylistMsg() {
         return successNotificationMsg.getText();
-
     }
 
     public HomePage clickOnAllSongsBtn() {
         allSongsBtn.click();
         return this;
-
-
     }
 
     public HomePage clickOnAddToBtn() {
@@ -73,14 +108,80 @@ public class HomePage extends BasePage {
 
         oldSongsPlaylist.click();
         return this;
-
     }
-
 
     public String getAddedSongSuccessMsg() {
 
         return successNotificationMsg.getText();
     }
 
+
+    public HomePage clickOnCreatePlaylistBtn(){
+         createPlaylistBtn.click();
+         return this;
+
+    }
+
+    public void clickOnCreatePlaylistDropD(){
+        actions.moveToElement(smartPlaylistDropD).perform();
+        smartPlaylistDropD.click();
+    }
+
+    public HomePage writeSmartPlaylistName(String PlaylistName){
+        smartPlaylistInput.sendKeys(PlaylistName);
+        return this ;
+    }
+
+   //public HomePage clickSelectDropDown(){
+        //selectDropDown.click();
+       // return this;
+   // }
+
+    public void selectTitleFromDropDown(){
+
+        WebElement selectDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".row > select[name='model[]']")));
+        Select select = new Select(selectDropDown);
+        select.selectByIndex(0);
+
+    }
+
+
+    //public HomePage clickSelectForSecondDropDown(){
+        //secondSelectDropDown.click();
+       // return this ;
+
+//}
+
+public void selectIsFromSecondDropDown(){
+    WebElement selectSecondDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".row > select[name='operator[]']")));
+    Select select = new Select(selectSecondDropDown);
+    select.selectByIndex(0);
+
+        //actions.moveToElement(selectIsDropDown).perform();
+       // selectIsDropDown.click();
+}
+public HomePage writeTheSongName(String songName){
+        inputField.sendKeys(songName);
+        return this;
+}
+
+public HomePage clickOnSaveBtn(){
+        saveBtn.click();
+        return this;
+}
+
+public String getSuccessNotification(){
+      return   successNotificationMsg.getText();
+
+}
+
+public HomePage clickOnSmartPlaylist(){
+        smartPlaylist.click();
+        return this;
+}
+
+public boolean isDarkDaysDisplayed(){
+        return songDarkDays.isDisplayed();
+}
 
 }

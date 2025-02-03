@@ -73,6 +73,12 @@ private WebElement smartPlaylist;
 @FindBy(css = "section#playlistWrapper .items > .song-item")
 private WebElement songDarkDays;
 
+@FindBy (css = "div:nth-of-type(3) > select[name='model[]']")
+private WebElement selectOfRule2;
+
+@FindBy (css = "div:nth-of-type(3)  input[name='value[]']")
+private WebElement albumInput;
+
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -183,5 +189,28 @@ public HomePage clickOnSmartPlaylist(){
 public boolean isDarkDaysDisplayed(){
         return songDarkDays.isDisplayed();
 }
+
+    public void selectAlbumFromDropDownRule2(){
+
+        WebElement selectDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-of-type(3) > select[name='model[]']")));
+        Select select = new Select(selectDropDown);
+        select.selectByIndex(1);
+
+    }
+
+    public void selectIsFromDropDownRule2(){
+
+        WebElement selectDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-of-type(3) > select[name='operator[]']")));
+        Select select = new Select(selectDropDown);
+        select.selectByIndex(0);
+
+    }
+
+    public HomePage writeNameOfAlbum(String albumName){
+        albumInput.sendKeys(albumName);
+        return this;
+
+    }
+
 
 }

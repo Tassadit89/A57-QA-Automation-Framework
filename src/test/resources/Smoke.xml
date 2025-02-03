@@ -12,7 +12,7 @@
 
             <class name="SmartPlaylist">
 
-                <methods> <include name="verifySmartPlaylistWithOneRulRelatedSongsAppear"/>
+                <methods> <include name=" createSmartPlaylistWithOneRule"/>
 
 
                 </methods>

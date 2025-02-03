@@ -8,6 +8,7 @@
 
             <class name="BaseTest"/>
 
+
         </classes>
     </test>
 </suite>

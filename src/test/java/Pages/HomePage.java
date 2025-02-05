@@ -79,6 +79,37 @@ private WebElement selectOfRule2;
 @FindBy (css = "div:nth-of-type(3)  input[name='value[]']")
 private WebElement albumInput;
 
+@FindBy (css = "div:nth-of-type(1) > .btn-add-rule")
+private WebElement rule2Btn ;
+
+@FindBy (css = ".btn-add-group")
+private WebElement addGroupBtn;
+
+@FindBy (css = "div:nth-of-type(1) > .row > select[name='model[]']")
+private WebElement groupPlaylistSelect1;
+
+@FindBy (css = "div:nth-of-type(1) > .row > select[name='operator[]']")
+
+private WebElement groupPlaylistSelect2;
+
+@FindBy(css = "div:nth-of-type(1) > .row  input[name='value[]']")
+private WebElement groupPlaylistInput1;
+
+@FindBy(css = "div:nth-of-type(2) > .row > select[name='model[]']")
+private WebElement groupPlaylistSelect3;
+
+@FindBy (css = "div:nth-of-type(2) > .row > select[name='operator[]']")
+private WebElement groupPlaylistSelect4;
+
+@FindBy(css = "div:nth-of-type(2) > .row > .value-wrapper > input[name='value[]']")
+private WebElement groupPlaylistInput2;
+
+@FindBy (css = "section#playlistWrapper .text")
+private WebElement emptyPlaylistMsg;
+
+@FindBy(css = "section#playlists > ul > li:nth-of-type(5)")
+
+private WebElement emptyPlaylist;
 
     public WebElement getAvatarIcon() {
         return findElement(userAvatarIcon);
@@ -212,5 +243,63 @@ public boolean isDarkDaysDisplayed(){
 
     }
 
+    public HomePage clickOnRuleBtn(){
+        rule2Btn.click();
+        return this;
 
+    }
+
+    public String getSuccessMsg(){
+        WebElement successMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+       return successMsg.getText();
+
+    }
+
+    public HomePage clickOnGroupBtn(){
+        addGroupBtn.click();
+        return this ;
+    }
+
+    public void selectAlbumFromFirstDropDown(){
+        WebElement groupFirstDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-of-type(1) > .row > select[name='model[]']")));
+        Select select = new Select(groupFirstDropDown);
+        select.selectByIndex(1);
+    }
+
+public void selectIsFromGroupSecondDropDown(){
+        WebElement groupSecondDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-of-type(1) > .row > select[name='operator[]']")));
+        Select select = new Select(groupSecondDropDown);
+        select.selectByIndex(0);
+}
+
+public HomePage writeAlbum1Name(String AlbumName1){
+        groupPlaylistInput1.sendKeys(AlbumName1);
+        return this;
+}
+
+    public void selectAlbumFromThirdGroupDropDown(){
+        WebElement groupThirdDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-of-type(2) > .row > select[name='model[]']")));
+        Select select = new Select(groupThirdDropDown);
+        select.selectByIndex(1);
+    }
+    public void selectIsFromFourthGroupDropDown(){
+        WebElement groupFourthDropDown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div:nth-of-type(2) > .row > select[name='operator[]']")));
+        Select select = new Select(groupFourthDropDown);
+        select.selectByIndex(0);
+    }
+
+    public HomePage writeAlbum2Name(String AlbumName2) {
+        groupPlaylistInput2.sendKeys(AlbumName2);
+        return this;
+    }
+
+    public HomePage clickOnZinPlaylist(){
+        emptyPlaylist.click();
+        return this ;
+    }
+
+    public String verifyPlaylistIsEmpty(){
+       return emptyPlaylistMsg.getText();
+
+    }
 }

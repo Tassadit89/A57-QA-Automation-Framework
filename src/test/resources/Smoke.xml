@@ -12,7 +12,7 @@
 
             <class name="SmartPlaylist">
 
-                <methods> <include name=" createSmartPlaylistWithOneRule"/>
+                <methods> <include name="VerifyEmptySmartPlaylistHsNoSongs"/>
 
 
                 </methods>

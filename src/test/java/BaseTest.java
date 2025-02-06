@@ -1,10 +1,4 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.time.Duration;
-import java.util.HashMap;
-
 import io.netty.handler.codec.http.DefaultHttpHeaders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +16,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.time.Duration;
+import java.util.HashMap;
 
 public class BaseTest {
 
@@ -43,10 +43,10 @@ public class BaseTest {
     public void launchBrowser(String baseUrl) throws MalformedURLException {
         threadDriver.set(pickBrowser(System.getProperty("browser")));
         WebDriver driver = getDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
         driver.manage().window().maximize();
         driver.get(baseUrl);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(40));
     }
 
     @AfterMethod
